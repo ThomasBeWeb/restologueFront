@@ -3,7 +3,6 @@
 
 //Dossier racine
 $homedir = "http://restologue/";
-//$homedir = "http://home:8888/restologuefront/";
 
 //recup de la liste des fichiers du dossier content
 $fichiers = scandir("./contents/");
@@ -30,7 +29,7 @@ foreach($fichiers as $value){
 }
 ?>
 
-<div class="d-flex flex-row">
+<div class="d-flex flex-row align-items-center">
     <?php
     //Boucle sur la liste des fichiers et affiche
     
@@ -41,5 +40,29 @@ foreach($fichiers as $value){
             </div>
          <?php
     }
- ?>
+
+    if($_SESSION){
+    ?>
+        <div class="ml-auto p-2">
+            <h6 class="titreMiddle"><?=$_SESSION['username']?></h6>
+        </div>
+        <div class="p-2">
+            <a href="http://restologue/login.php"><i class="fas fa-window-close"></i></a>
+        </div>
+    <?php
+    }else{
+    ?>
+    <div class="ml-auto p-2">
+        <form class="form-inline" action="http://restologue/login.php" role="form" method="post">
+            <h6 class="titreMiddle">Username</h6>
+            <input type="text" class="form-control form-control-sm" name="username" id="username"  placeholder="Enter your Username" value="administrateur"/>
+            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+        </form>
+    </div>
+
+    <?php
+    }
+    ?>
+    
+
 </div>
