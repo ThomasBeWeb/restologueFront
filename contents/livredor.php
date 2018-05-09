@@ -14,7 +14,7 @@ if($_SESSION OR $_POST){
     }
 
     //Recup des messages
-    $json_source = file_get_contents('http://localhost:8888/phpdecouverte/template/messages.json');
+    $json_source = file_get_contents('./sources/messages.json');
     $listeMessages = json_decode($json_source, true);
 
     if (isset($_POST['message'])){ //Si message envoye
@@ -36,8 +36,7 @@ if($_SESSION OR $_POST){
         $listePostsJson = json_encode($listeMessages, JSON_PRETTY_PRINT); //This parameter will format our JSON object and store it in json file
         
         //Recup du fichier d'origine
-        //$file = "/home/cantinelli/ServeurWeb/php-decouverte.bwb/template/messages.json";    //chmod 777 -R template/ effectué
-        $file = "/Users/utilisateur/MesApps/phpdecouverte/template/messages.json";    //chmod 777 -R template/ effectué
+        $file = "./sources/messages.json";    //chmod 777 -R template/ effectué
         
         //Ecrire la nouvelle liste dans le fichier messages.json
         file_put_contents($file, $listePostsJson);
@@ -48,7 +47,7 @@ if($_SESSION OR $_POST){
     <div class="row">
 
         <!-- <form class="form" action="http://php-decouverte.bwb/?page=livredor" role="form" method="post"> -->
-        <form class="form" action="http://localhost:8888/phpdecouverte/?page=livredor" role="form" method="post">
+        <form class="form" action="http://restologue/?page=livredor" role="form" method="post">
             <div class="input-group mb-3 col-auto">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Message</span>
@@ -83,7 +82,7 @@ if($_SESSION OR $_POST){
     <h4>Vous devez être connecté pour accéder au livre d'or</h4>
     <div class="row main">
         <div class="main-login main-center">
-            <form class="form" action="http://localhost:8888/phpdecouverte/?page=livredor" role="form" method="post" id="formulaire">
+            <form class="form" action="http://restologue/?page=livredor" role="form" method="post" id="formulaire">
                 <div class="form-group">
                     <label for="username" class="cols-sm-2 control-label">Username</label>
                     <div class="cols-sm-10">
