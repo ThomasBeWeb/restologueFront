@@ -2,11 +2,11 @@
 //Barre de navigation
 
 //Dossier racine
-//$homedir = "http://php-decouverte.bwb/";
-$homedir = "http://home:8888/restologuefront/";
+$homedir = "http://restologue/";
+//$homedir = "http://home:8888/restologuefront/";
 
 //recup de la liste des fichiers du dossier content
-$fichiers = scandir("/Users/utilisateur/MesApps/restologueFront/contents/");
+$fichiers = scandir("./contents/");
 
 //Creation de la liste de fichiers sous la forme: nom du lien => lien
 $listeFichiers = array("home" => $homedir);
